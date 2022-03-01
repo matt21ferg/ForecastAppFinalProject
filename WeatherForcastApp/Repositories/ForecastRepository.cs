@@ -18,19 +18,13 @@ namespace ForecastApp.Repositories
         WeatherResponse IForecastRepository.GetForecast(string city)
         {
             string IDOWeather = Constants.OPEN_WEATHER_APPID;
-           // public string IDOMaps = Constants.mapsApiKey;
-
-            // Connection String
-            //var client = new RestClient($"http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&APPID={IDOWeather}");
-            //var request = new RestRequest(Method.GET);
-            //IRestResponse response = client.Execute(request);
+           
             var client = new HttpClient();
             var weatherURL = $"http://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&appid={IDOWeather}";
 
-            var response2 = new WeatherResponse();
-            //string IDOMaps = Constants.mapsApiKey;
-            
-           //response2.MapsURL = $"https://www.google.com/maps/embed/v1/place?key={IDOMaps}&q={city}";
+            //var response2 = new WeatherResponse();
+
+           
             try
             { 
             var response = client.GetStringAsync(weatherURL).Result;
