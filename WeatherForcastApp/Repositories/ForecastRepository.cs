@@ -27,11 +27,7 @@ namespace ForecastApp.Repositories
             try
             { 
             var response = client.GetStringAsync(weatherURL).Result;
-
-
-
-           
-            
+      
                 // Deserialize the string content into JToken object
                 var content = JsonConvert.DeserializeObject<WeatherResponse>(response);
 
