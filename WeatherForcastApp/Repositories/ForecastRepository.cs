@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 using ForecastApp.OpenWeatherMapModels;
 using Newtonsoft.Json;
 using RestSharp;
@@ -22,7 +21,7 @@ namespace ForecastApp.Repositories
             var client = new HttpClient();
             var weatherURL = $"http://api.openweathermap.org/data/2.5/weather?q={city}&units=imperial&appid={IDOWeather}";
 
-            //var response2 = new WeatherResponse();
+            var response2 = new WeatherResponse();
 
            
             try
@@ -34,10 +33,10 @@ namespace ForecastApp.Repositories
            
             
                 // Deserialize the string content into JToken object
-                var content = JsonConvert.DeserializeObject<JToken>(response);
+                var content = JsonConvert.DeserializeObject<WeatherResponse>(response);
 
                 // Deserialize the JToken object into our WeatherResponse Class
-                return content.ToObject<WeatherResponse>();
+                return content;
             }
             catch { return null; }
 

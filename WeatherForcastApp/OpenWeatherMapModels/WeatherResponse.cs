@@ -22,5 +22,6 @@ namespace ForecastApp.OpenWeatherMapModels
         public int Cod { get; set; }
         public string MapsKey { get; set; }
         public string MapsURL { get; set; }
+        
     }
 }

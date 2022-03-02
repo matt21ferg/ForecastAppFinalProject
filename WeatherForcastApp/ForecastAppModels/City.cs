@@ -27,10 +27,18 @@ namespace WeatherForcastApp.ForecastAppModels
 
         [Display(Name = "Weather Condition:")]
         public string Weather { get; set; }
-       
+
         public string Icon { get; set; }
-        
-        
+        public string ImagePath
+        {
+            get
+            {
+                return $"http://openweathermap.org/img/wn/{Icon}@2x.png";
+            }
+        }
+
+
+
         public double lon { get; set; }
 
         public double lat { get; set; } 
